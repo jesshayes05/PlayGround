@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover" />
+  <meta name="theme-color" content="#17291f" />
+  <title>Thistlewick — The Lanternwilds</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+  <script type="importmap">{"imports":{"three":"https://unpkg.com/three@0.166.1/build/three.module.js"}}</script>
+</head>
+<body>
+  <main id="game">
+    <canvas id="world" aria-label="3D game world"></canvas>
+    <div class="vignette"></div>
+    <header class="topbar">
+      <div class="brand"><div class="brand-mark">✦</div><div><div class="brand-name">THISTLEWICK</div><div class="brand-sub">THE LANTERNWILDS</div></div></div>
+      <div class="day-pill"><span class="sun-icon">☀</span><span id="dayLabel">DAY 1 · GOLDEN HOUR</span></div>
+      <button class="icon-btn map-btn" id="mapToggle" aria-label="Toggle map">⌖</button>
+    </header>
+    <section class="quest-card panel">
+      <div class="eyebrow"><span class="sparkle">✧</span> YOUR FIRST ERRAND</div>
+      <div class="quest-title" id="questTitle">A little light goes a long way</div>
+      <div class="quest-copy" id="questCopy">Gather 3 moonpetals for Pip near the old footbridge.</div>
+      <div class="quest-progress"><div class="progress-track"><div id="questBar"></div></div><span id="questCount">0 / 3</span></div>
+      <div class="quest-reward">✦ <span id="questReward">A friend’s first impression</span></div>
+    </section>
+    <section class="reputation panel">
+      <div class="reputation-head"><span>YOUR REPUTATION</span><button id="repToggle" aria-label="Toggle reputation">⌃</button></div>
+      <div class="rep-list" id="repList">
+        <div class="rep-row"><span class="rep-icon cottage">⌂</span><span class="rep-name">Hearthfolk</span><div class="rep-track"><i id="repHearth"></i></div><b id="repHearthNum">18</b></div>
+        <div class="rep-row"><span class="rep-icon academy">✦</span><span class="rep-name">Academy</span><div class="rep-track"><i id="repAcademy"></i></div><b id="repAcademyNum">12</b></div>
+        <div class="rep-row"><span class="rep-icon wilds">❋</span><span class="rep-name">Wilds</span><div class="rep-track"><i id="repWilds"></i></div><b id="repWildsNum">24</b></div>
+      </div>
+      <div class="rep-note">Kindness leaves a trail.</div>
+    </section>
+    <div class="location"><span class="location-dot"></span><span id="locationLabel">THE WILLOWMEAD</span></div>
+    <div class="hint" id="hint"><span class="keycap">E</span><span id="hintText">Speak with Pip</span></div>
+    <div class="toast" id="toast"></div>
+    <div class="map-panel panel" id="mapPanel"><div class="map-heading">THE LANTERNWILDS <button id="closeMap">×</button></div><div class="map-art"><span class="map-path"></span><span class="map-you">✦</span><span class="map-pin pin-pip">●</span><span class="map-pin pin-academy">✦</span><span class="map-pin pin-rowan">●</span><span class="map-label label-you">YOU</span><span class="map-label label-pip">PIP’S BRIDGE</span><span class="map-label label-academy">THISTLEWICK HALL</span></div><div class="map-legend"><span>✦ Your place in the wilds</span><span>● Friends & neighbors</span></div></div>
+    <div class="dialogue-wrap" id="dialogueWrap" aria-live="polite"><div class="dialogue-card panel"><div class="dialogue-person"><div class="portrait" id="portrait">🐇</div><div><div class="dialogue-name" id="dialogueName">Pip</div><div class="dialogue-role" id="dialogueRole">BRIDGE KEEPER · BOND 0</div></div><button id="dialogueClose" aria-label="Close dialogue">×</button></div><div class="dialogue-text" id="dialogueText"></div><div class="choices" id="choices"></div></div></div>
+    <div class="mobile-controls" id="mobileControls"><div class="joystick" id="joystick"><div class="joy-knob" id="joyKnob"></div></div><button class="action-button" id="actionButton"><span>✦</span><small>ACT</small></button></div>
+    <div class="help-pill"><span class="desktop-help">WASD move <i>·</i> E interact <i>·</i> Shift hurry</span><span class="mobile-help">DRAG TO MOVE <i>·</i> TAP ACT</span></div>
+    <div class="loading" id="loading"><div class="loading-flower">✿</div><div>Waking the wilds…</div></div>
+  </main>
+  <script type="module" src="game.js"></script>
+</body>
+</html>
